@@ -9,7 +9,6 @@
 #  - notify the user that they can now install the site using a browser
 #
 # @author Mike Crittenden <mike@mikethecoder.com>
-  
 
 # Remove the default index.html put there by Plesk.
 rm -f index.html
@@ -26,6 +25,11 @@ rm cornerstone.make
 
 # Move the install profile to the profiles directory.
 mv cornerstone/ profiles/
+
+cp sites/default/default.settings.php sites/default/settings.php
+chmod 777 sites/default/settings.php
+mkdir sites/default/files
+chmod -R 777 sites/default/files
 
 # Echo the following in cyan colored text.
 echo
