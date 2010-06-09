@@ -12,7 +12,7 @@
   
 
 # Remove the default index.html put there by Plesk.
-rm index.html
+rm -f index.html
 
 # Grab the files from the GitHub repo.
 git clone git://github.com/mikecrittenden/cornerstone.git
