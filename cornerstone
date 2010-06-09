@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# DRUPAL INSTALLER by Mike Crittenden
+#
+# The following script, when executed in the web root, will do the following: 
+#  - download the "cornerstone" install profile and makefile from GitHub
+#  - run the makefile to download all themes and modules
+#  - put the install profile in the appropriate directory
+#  - notify the user that they can now install the site using a browser
+#
+# @author Mike Crittenden <mike@mikethecoder.com>
+  
+
+# Remove the default index.html put there by Plesk.
+rm index.html
+
+# Grab the files from the GitHub repo.
+git clone git://github.com/mikecrittenden/cornerstone.git
+mv cornerstone/cornerstone.make .
+
+# Download everything.
+drush make cornerstone.make
+
+# Remove the makefile.
+rm cornerstone.make
+
+# Move the install profile to the profiles directory.
+mv cornerstone/ profiles/
+
+# Echo the following in cyan colored text.
+echo
+echo -e "\e[00;32mGood job, bro! It worked.\e[00m"
+echo
+echo -e "\e[00;33mNext steps:"
+echo "1) Create the MySQL database this site will use."
+echo "2) Visit the site in a browser to load the installer."
+echo "3) Choose the \"Cornerstone\" install profile and install the site as usual."
+echo -e "\e[00m"
+
+# Exit successfully.
+exit 0
