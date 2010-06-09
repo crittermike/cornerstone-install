@@ -19,7 +19,7 @@ git clone git://github.com/mikecrittenden/cornerstone.git
 mv cornerstone/cornerstone.make .
 
 # Download everything.
-drush make cornerstone.make
+drush -y make cornerstone.make
 
 # Remove the makefile.
 rm cornerstone.make
